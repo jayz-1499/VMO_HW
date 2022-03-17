@@ -115,8 +115,21 @@ function checkEnoughElementInArrayToN(array, n) {
   return rs;
 }
 //Question 13
-function changeBaseNumber(number){
-      
+function changeBaseNumber(number, base) {
+  let rs = "";
+  if (base == 2) {
+    while (number >= 1) {
+      rs += `${number % 2}`;
+      number = Math.floor(number / 2);
+    }
+    return rs.split("").reverse().join("");
+  } else if (base == 8) {
+    while (number > 0) {
+      rs += `${number % 8}`;
+      number = Math.floor(number / 8);
+    }
+    return rs.split("").reverse().join("");
+  }
 }
 //Question 14
 function changeString(string) {
@@ -202,7 +215,8 @@ function main() {
   let newArray4 = [1, 2, 3, 4, 5, 6, 7, 8, 9];
   console.log("Q12: " + checkEnoughElementInArrayToN(newArray4, 8));
   //Question 13
-  //console.log("Q13: " + base10ToBase2(12));
+  console.log("Q13 base 2: " + changeBaseNumber(12, 2));
+  console.log("Q13 base 8: " + changeBaseNumber(20, 8));
   //Question 14
   let string14 = "122344111";
   console.log("Q14: " + changeString(string14));
